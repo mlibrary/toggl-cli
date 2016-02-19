@@ -1,3 +1,35 @@
+Local changes
+-------------
+
+toggl-cli didn't auto-create a .togglrc for me.  I had to make one by hand and guess at a few things.  Here's what I have:
+
+```ini
+[options]
+timezone = EST
+prefer_token = true
+time_format = "%H:%M"
+
+[auth]
+username = bertrama@umich.edu
+api_token = <my-api-token>
+```
+
+I had to monkey with pip a bit to get dependencies installed where I wanted.
+I don't recall exactly what I did, but it wasn't as clean as `bundle install --path .bundlle`
+
+Added command line options:
+
+```bash
+  -O, --operational     Tag 'operational'
+  -D, --development     Tag 'development'
+  -E, --end-user-support
+                        Tag 'end-user support'
+  -P, --project-management
+                        Tag 'project management'
+```
+
+These are noted on the -h output too.
+
 Overview
 --------
 
