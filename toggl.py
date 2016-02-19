@@ -973,19 +973,19 @@ class CLI(object):
 
         self.parser.add_option("-O", "--operational", const=["operational"],
                               action="store_const", dest="tags", default=None,
-                              help="Tag operational")
+                              help="Tag 'operational'")
 
         self.parser.add_option("-D", "--development", const=["development"],
                               action="store_const", dest="tags", default=None,
-                              help="Tag development")
+                              help="Tag 'development'")
 
         self.parser.add_option("-E", "--end-user-support", const=["end-user support"],
                               action="store_const", dest="tags", default=None,
-                              help="Tag end-user support")
+                              help="Tag 'end-user support'")
 
         self.parser.add_option("-P", "--project-management", const=["project management"],
                               action="store_const", dest="tags", default=None,
-                              help="set operational")
+                              help="Tag 'project management'")
 
         # self.args stores the remaining command line args.
         (options, self.args) = self.parser.parse_args()
