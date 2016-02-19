@@ -577,6 +577,9 @@ class TimeEntry(object):
        
         self.data['created_with'] = 'toggl-cli'
 
+        if tags is not None:
+            self.data['tags'] = tags
+
     def add(self):
         """
         Adds this time entry as a completed entry. 
@@ -968,8 +971,30 @@ class CLI(object):
                               action="store_true", dest="debug", default=False,
                               help="print debugging output")
 
+        self.parser.add_option("-O", "--operational", const=["operational"],
+                              action="store_const", dest="tags", default=None,
+                              help="Tag operational")
+
+        self.parser.add_option("-D", "--development", const=["development"],
+                              action="store_const", dest="tags", default=None,
+                              help="Tag development")
+
+        self.parser.add_option("-E", "--end-user-support", const=["end-user support"],
+                              action="store_const", dest="tags", default=None,
+                              help="Tag end-user support")
+
+        self.parser.add_option("-P", "--project-management", const=["project management"],
+                              action="store_const", dest="tags", default=None,
+                              help="set operational")
+
         # self.args stores the remaining command line args.
         (options, self.args) = self.parser.parse_args()
+
+        global tags
+        if options.tags is not None:
+            tags = options.tags
+        else:
+            tags = None
 
         # Process command-line options.
         Logger.level = Logger.INFO
